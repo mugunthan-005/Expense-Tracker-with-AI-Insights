@@ -2,6 +2,7 @@ package com.expensetracker.config;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -15,7 +16,7 @@ public class GlobalExceptionHandler {
         ProblemDetail detail = ProblemDetail.forStatus(HttpStatus.BAD_REQUEST);
         detail.setTitle("Validation failed");
         detail.setDetail(exception.getBindingResult().getAllErrors().stream()
-                .map(error -> error.getDefaultMessage())
+                .map(ObjectError::getDefaultMessage)
                 .findFirst()
                 .orElse("Invalid request"));
         return detail;
