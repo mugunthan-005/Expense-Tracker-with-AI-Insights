@@ -10,7 +10,7 @@ Java Spring Boot backend for tracking expenses, generating monthly reports, moni
 - H2 (in-memory DB)
 
 ## Project Structure
-- Backend code: `/home/runner/work/Expense-Tracker-with-AI-Insights/Expense-Tracker-with-AI-Insights/expense-tracker`
+- Backend code: `./expense-tracker`
 - Main package: `com.expensetracker`
 
 ## Features
@@ -21,13 +21,13 @@ Java Spring Boot backend for tracking expenses, generating monthly reports, moni
 
 ## Run Locally
 ```bash
-cd /home/runner/work/Expense-Tracker-with-AI-Insights/Expense-Tracker-with-AI-Insights/expense-tracker
+cd expense-tracker
 mvn spring-boot:run
 ```
 
 ## Test
 ```bash
-cd /home/runner/work/Expense-Tracker-with-AI-Insights/Expense-Tracker-with-AI-Insights/expense-tracker
+cd expense-tracker
 mvn test
 ```
 

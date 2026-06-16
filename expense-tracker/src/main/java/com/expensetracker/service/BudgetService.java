@@ -54,6 +54,19 @@ public class BudgetService {
                 .map(Expense::getAmount)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
 
+        if (budget.getAmount().compareTo(BigDecimal.ZERO) <= 0) {
+            return new BudgetAlertResponse(
+                    budget.getId(),
+                    budget.getMonth(),
+                    budget.getCategory(),
+                    budget.getAmount(),
+                    spent,
+                    BigDecimal.ZERO,
+                    false,
+                    false
+            );
+        }
+
         BigDecimal spentPercentage = spent
                 .multiply(BigDecimal.valueOf(100))
                 .divide(budget.getAmount(), 2, RoundingMode.HALF_UP);
